@@ -1,18 +1,33 @@
 <ion-menu [content]="content">
 
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header>
+        <ion-toolbar padding-left>
+            <h3>phoneuser</h3>
+            <p>Jaspersoft mobile demo</p>
+            <p>organizetion_1</p>
+        </ion-toolbar>
+    </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+
+        <ion-list no-lines>
+
+            <button ion-item *ngFor="let page of pages" (click)="openPage(page.component)">
+                <ion-icon [name]="page.icon" item-left></ion-icon>
+                {{ page.title }}
+            </button>
+
+            <button ion-item *ngFor="let modal of modals" (click)="openModal(modal.component)">
+                {{ modal.title }}
+            </button>
+
+            <button ion-item (click)="logOut()">
+                Log Out
+            </button>
+
+        </ion-list>
+
+    </ion-content>
 
 </ion-menu>
 
