@@ -4,22 +4,23 @@ import {Profile} from './profile.service';
 @Injectable()
 export class Visualize {
   visualizePromise: Promise<any>;
+  script: any;
 
   constructor(public profile: Profile) {
   }
 
   loadVisualize() {
-    var script = document.createElement('script');
+    this.script = document.createElement('script');
 
     this.visualizePromise = new Promise((resolve, reject) => {
-      script.setAttribute('src', `${this.profile.server}/client/visualize.js`);
-      script.onload = () => {
+      this.script.setAttribute('src', `${this.profile.server}/client/visualize.js`);
+      this.script.onload = () => {
         resolve(window['visualize']);
       };
-      script.onerror = (err) => {
+      this.script.onerror = (err) => {
         reject(err);
       };
-      document.body.appendChild(script);
+      document.body.appendChild(this.script);
     });
 
     return this.visualizePromise;
@@ -37,9 +38,9 @@ export class Visualize {
       }
 
       if (this.visualizePromise) {
-        this.visualizePromise.then(auth.bind(this));
+        this.visualizePromise.then(auth.bind(this)).catch(reject);
       } else {
-        this.loadVisualize().then(auth.bind(this));
+        this.loadVisualize().then(auth.bind(this)).catch(reject);
       }
     });
   }

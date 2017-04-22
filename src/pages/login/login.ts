@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, LoadingController, ToastController} from 'ionic-angular';
 
 import {LibraryPage} from '../library/library';
 
@@ -12,22 +12,56 @@ import {Visualize} from '../../services/visualize.service';
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  username: string = '';
+  password: string = '';
+  server: string = '';
+
   constructor(public navCtrl: NavController,
+              public loadingCtrl: LoadingController,
+              public toastCtrl: ToastController,
               public vis: Visualize,
               public profile: Profile) {
 
   }
 
   login() {
-    this.tryDemo();
+    this.profile.login = this.username;
+    this.profile.password = this.password;
+    this.profile.server = this.server;
+
+    this.doLogin();
   }
 
   tryDemo() {
+    this.applyTestProfile();
+    this.doLogin();
+  }
+
+  doLogin() {
+    const loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
+
+    this.vis.login().then(()=> {
+      loading.dismiss();
+
+      this.navCtrl.setRoot(LibraryPage);
+    }).catch((err)=> {
+      loading.dismiss();
+
+      this.toastCtrl.create({
+        message: err.message,
+        duration: 2000,
+        position: 'top'
+      }).present();
+    });
+  }
+
+  applyTestProfile() {
     this.profile.login = 'joeuser';
     this.profile.password = 'joeuser';
     // this.profile.server = 'http://build-master-j8.jaspersoft.com:8980/jrs-pro-feature-embeddable-ahv2';
     this.profile.server = 'http://localhost:4040/jasperserver-pro';
-
-    this.navCtrl.setRoot(LibraryPage);
   }
 }
