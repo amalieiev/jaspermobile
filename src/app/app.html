@@ -12,12 +12,12 @@
 
         <ion-list no-lines>
 
-            <button ion-item *ngFor="let page of pages" (click)="openPage(page.component)">
+            <button ion-item *ngFor="let page of pages" (click)="openPage(page.component)" [disabled]="!page.component">
                 <ion-icon [name]="page.icon" item-left></ion-icon>
                 {{ page.title }}
             </button>
 
-            <button ion-item *ngFor="let modal of modals" (click)="openModal(modal.component)">
+            <button ion-item *ngFor="let modal of modals" (click)="openModal(modal.component)" [disabled]="!modal.component">
                 {{ modal.title }}
             </button>
 

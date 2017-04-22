@@ -5,20 +5,27 @@
     </button>
     <ion-title>Library</ion-title>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="updateQuery($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <ion-list>
 
-    <ion-item>
+    <ion-item *ngFor="let item of filterItems()">
       <ion-thumbnail item-left>
-        <img src="assets/img/ahv.png">
+        <img src="{{ item.thumbnail }}">
       </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.description }}</p>
       <button ion-button clear item-right>View</button>
     </ion-item>
 
   </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
