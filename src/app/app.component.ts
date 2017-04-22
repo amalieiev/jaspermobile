@@ -5,6 +5,8 @@ import {Platform, MenuController, ModalController, Nav} from 'ionic-angular';
 import {LoginPage} from '../pages/login/login';
 import {LibraryPage} from '../pages/library/library';
 
+import {Profile} from '../services/profile.service';
+
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {AboutPage} from "../pages/about/about";
@@ -27,6 +29,7 @@ export class MyApp {
               public menu: MenuController,
               public modal: ModalController,
               public statusBar: StatusBar,
+              public profile: Profile,
               public splashScreen: SplashScreen) {
     this.initializeApp();
   }
