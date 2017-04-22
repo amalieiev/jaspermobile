@@ -12,30 +12,30 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 @NgModule({
-    declarations: [
-        MyApp,
-        LoginPage,
-        LibraryPage,
-        AboutPage,
-        SettingsPage
-    ],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(MyApp),
-    ],
-    bootstrap: [IonicApp],
-    entryComponents: [
-        MyApp,
-        LoginPage,
-        LibraryPage,
-        AboutPage,
-        SettingsPage
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
-    ]
+  declarations: [
+    MyApp,
+    LoginPage,
+    LibraryPage,
+    AboutPage,
+    SettingsPage
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp),
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    LoginPage,
+    LibraryPage,
+    AboutPage,
+    SettingsPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
+  ]
 })
 export class AppModule {
 }

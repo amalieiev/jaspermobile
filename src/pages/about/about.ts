@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {ViewController} from 'ionic-angular';
 
 @Component({
-    selector: 'page-about',
-    templateUrl: 'about.html'
+  selector: 'page-about',
+  templateUrl: 'about.html'
 })
 export class AboutPage {
 
-    constructor(public viewCtrl: ViewController) {}
+  constructor(public viewCtrl: ViewController) {
+  }
 
-    dismiss() {
-        this.viewCtrl.dismiss();
-    }
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }
