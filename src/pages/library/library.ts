@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
+import {ViewerPage} from '../viewer/viewer';
+
 
 @Component({
   selector: 'page-library',
@@ -8,7 +10,7 @@ import {NavController} from 'ionic-angular';
 })
 export class LibraryPage {
 
-  items: Array<{thumbnail: string, title: string, description: string}> = [];
+  items: Array<{thumbnail: string, title: string, description: string, resource: string}> = [];
   queryString: string = '';
 
   constructor(public navCtrl: NavController) {
@@ -20,7 +22,8 @@ export class LibraryPage {
       this.items.push({
         thumbnail: '',
         title: `Report ${this.items.length}`,
-        description: 'Description of test report'
+        description: 'Description of test report',
+        resource: '/public/Samples/Ad_Hoc_Views/01__Geographic_Results_by_Segment'
       });
     }
   }
@@ -44,6 +47,10 @@ export class LibraryPage {
     setTimeout(()=> {
       this.loadItems();
       infiniteScroll.complete();
-    }, 500)
+    }, 500);
+  }
+
+  run(item) {
+    this.navCtrl.push(ViewerPage, {item});
   }
 }

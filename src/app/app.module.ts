@@ -3,6 +3,7 @@ import {NgModule, ErrorHandler} from '@angular/core';
 import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import {MyApp} from './app.component';
 
+import {ViewerPage} from "../pages/viewer/viewer";
 import {LoginPage} from '../pages/login/login';
 import {LibraryPage} from '../pages/library/library';
 import {AboutPage} from '../pages/about/about';
@@ -16,6 +17,7 @@ import {Visualize} from '../services/visualize.service';
 @NgModule({
   declarations: [
     MyApp,
+    ViewerPage,
     LoginPage,
     LibraryPage,
     AboutPage,
@@ -28,6 +30,7 @@ import {Visualize} from '../services/visualize.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ViewerPage,
     LoginPage,
     LibraryPage,
     AboutPage,
