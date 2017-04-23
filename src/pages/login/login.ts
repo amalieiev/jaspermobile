@@ -4,7 +4,6 @@ import {NavController, LoadingController, ToastController} from 'ionic-angular';
 import {LibraryPage} from '../library/library';
 
 import {Profile} from '../../services/profile.service';
-import {Visualize} from '../../services/visualize.service';
 
 
 @Component({

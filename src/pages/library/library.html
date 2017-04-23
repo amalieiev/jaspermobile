@@ -1,19 +1,26 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Library</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="toggleDisplayMode()">
+        <ion-icon [name]="displayMode == 'grid' ? 'apps' : 'list'"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-searchbar (ionInput)="updateQuery($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <ion-list>
-
+  <ion-list *ngIf="displayMode == 'list'">
     <ion-item *ngFor="let item of filterItems()" (click)="run(item)">
       <ion-thumbnail item-left>
         <img src="{{ item.thumbnail }}">
@@ -21,8 +28,22 @@
       <h2>{{ item.title }}</h2>
       <p>{{ item.description }}</p>
     </ion-item>
-
   </ion-list>
+
+  <ion-grid *ngIf="displayMode == 'grid'">
+    <ion-row *ngFor="let pair of getPairs()">
+      <ion-col  no-padding col-6 *ngFor="let item of pair">
+        <ion-card (click)="run(item)">
+          <ion-card-header>
+            {{ item.title }}
+          </ion-card-header>
+          <ion-card-content>
+            {{ item.description }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>

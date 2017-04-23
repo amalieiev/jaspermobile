@@ -12,6 +12,7 @@ export class LibraryPage {
 
   items: Array<{thumbnail: string, title: string, description: string, resource: string}> = [];
   queryString: string = '';
+  displayMode: string = 'list';
 
   constructor(public navCtrl: NavController) {
     this.loadItems();
@@ -28,6 +29,10 @@ export class LibraryPage {
     }
   }
 
+  toggleDisplayMode() {
+    this.displayMode = this.displayMode == 'list' ? 'grid' : 'list';
+  }
+
   updateQuery(event) {
     const value = event.target.value;
     this.queryString = value && value.toLowerCase().trim();
@@ -41,6 +46,16 @@ export class LibraryPage {
     } else {
       return this.items;
     }
+  }
+
+  getPairs() {
+    return this.filterItems().reduce((memo, item, key)=> {
+      if (key % 2 == 0) {
+        memo.push([]);
+      }
+      memo[memo.length - 1].push(item);
+      return memo;
+    }, []);
   }
 
   doInfinite(infiniteScroll) {
