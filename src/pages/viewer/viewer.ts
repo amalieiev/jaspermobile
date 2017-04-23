@@ -18,17 +18,15 @@ export class ViewerPage {
   }
 
   ngAfterViewInit() {
-    this.vis.login().then((v: any)=> {
-      v.adhocView({
-        container: '.visualization-container',
-        resource: this.selectedItem.resource,
-        success: ()=> {
-          console.log('rendered');
-        },
-        error: (err)=> {
-          console.log(err);
-        }
-      });
+    this.vis.adhocView({
+      container: '.visualization-container',
+      resource: this.selectedItem.resource,
+      success: ()=> {
+        console.log('rendered');
+      },
+      error: (err)=> {
+        console.log(err);
+      }
     });
   }
 }

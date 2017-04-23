@@ -19,37 +19,25 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController,
               public toastCtrl: ToastController,
-              public vis: Visualize,
               public profile: Profile) {
 
   }
 
   login() {
-    this.profile.login = this.username;
-    this.profile.password = this.password;
-    this.profile.server = this.server;
-
-    this.doLogin();
-  }
-
-  tryDemo() {
-    this.applyTestProfile();
-    this.doLogin();
-  }
-
-  doLogin() {
     const loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
 
-    this.vis.login().then(()=> {
+    this.profile.login({
+      username: this.username,
+      password: this.password,
+      server: this.server,
+    }).then(()=> {
       loading.dismiss();
-
       this.navCtrl.setRoot(LibraryPage);
     }).catch((err)=> {
       loading.dismiss();
-
       this.toastCtrl.create({
         message: err.message,
         duration: 2000,
@@ -58,10 +46,15 @@ export class LoginPage {
     });
   }
 
+  tryDemo() {
+    this.applyTestProfile();
+    this.login();
+  }
+
   applyTestProfile() {
-    this.profile.login = 'joeuser';
-    this.profile.password = 'joeuser';
+    this.username = 'joeuser';
+    this.password = 'joeuser';
     // this.profile.server = 'http://build-master-j8.jaspersoft.com:8980/jrs-pro-feature-embeddable-ahv2';
-    this.profile.server = 'http://localhost:4040/jasperserver-pro';
+    this.server = 'http://localhost:4040/jasperserver-pro';
   }
 }
