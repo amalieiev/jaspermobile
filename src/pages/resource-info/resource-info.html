@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      {{ resource.title }}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="share" isActive="false"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      Name
+      <ion-note item-right>
+        {{ resource.title }}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Description
+      <ion-note item-right>
+        {{ resource.description }}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      URI
+      <ion-note item-right>
+        {{ resource.resource.slice(0,30).concat('...') }}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Type
+      <ion-note item-right>
+        AdHocView
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Version
+      <ion-note item-right>
+        1
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Creation Date
+      <ion-note item-right>
+        null
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      Modified Date
+      <ion-note item-right>
+        null
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

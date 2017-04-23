@@ -1,7 +1,7 @@
 <ion-menu [content]="content">
 
   <ion-header>
-    <ion-toolbar padding-left>
+    <ion-toolbar padding-left color="dark">
       <h3>{{ this.profile.username }}</h3>
       <p>Jaspersoft Mobile</p>
     </ion-toolbar>
@@ -28,6 +28,11 @@
 
   </ion-content>
 
+  <ion-footer>
+    <ion-toolbar padding-left color="dark">
+      <p>version 1.0</p>
+    </ion-toolbar>
+  </ion-footer>
 </ion-menu>
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

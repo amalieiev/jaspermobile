@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 
 import {ViewerPage} from '../viewer/viewer';
+import {ResourceInfoPage} from "../resource-info/resource-info";
 
 
 @Component({
@@ -57,5 +58,10 @@ export class LibraryPage {
 
   run(item) {
     this.navCtrl.push(ViewerPage, {item});
+  }
+
+  showInfo(event, item) {
+    event.stopPropagation();
+    this.navCtrl.push(ResourceInfoPage, {resource: item})
   }
 }

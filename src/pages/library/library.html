@@ -9,7 +9,7 @@
         <ion-icon [name]="displayMode == 'list' ? 'apps' : 'list'"></ion-icon>
       </button>
       <button ion-button icon-only>
-        <ion-icon name="share"></ion-icon>
+        <ion-icon name="share" isActive="false"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -27,6 +27,7 @@
       </ion-thumbnail>
       <h2>{{ item.title }}</h2>
       <p>{{ item.description }}</p>
+      <ion-icon name="information-circle" item-right isActive="false" (click)="showInfo($event, item)"></ion-icon>
     </ion-item>
   </ion-list>
 

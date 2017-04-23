@@ -8,6 +8,7 @@ import {LoginPage} from '../pages/login/login';
 import {LibraryPage} from '../pages/library/library';
 import {AboutPage} from '../pages/about/about';
 import {SettingsPage} from "../pages/settings/settings";
+import {ResourceInfoPage} from '../pages/resource-info/resource-info';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -20,6 +21,7 @@ import {Visualize} from '../services/visualize.service';
     ViewerPage,
     LoginPage,
     LibraryPage,
+    ResourceInfoPage,
     AboutPage,
     SettingsPage
   ],
@@ -33,6 +35,7 @@ import {Visualize} from '../services/visualize.service';
     ViewerPage,
     LoginPage,
     LibraryPage,
+    ResourceInfoPage,
     AboutPage,
     SettingsPage
   ],

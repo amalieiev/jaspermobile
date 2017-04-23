@@ -14,6 +14,7 @@ import {SettingsPage} from "../pages/settings/settings";
 
 
 @Component({
+  selector: 'page-app',
   templateUrl: 'app.html'
 })
 export class MyApp {
