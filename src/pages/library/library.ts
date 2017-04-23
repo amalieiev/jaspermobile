@@ -48,16 +48,6 @@ export class LibraryPage {
     }
   }
 
-  getPairs() {
-    return this.filterItems().reduce((memo, item, key)=> {
-      if (key % 2 == 0) {
-        memo.push([]);
-      }
-      memo[memo.length - 1].push(item);
-      return memo;
-    }, []);
-  }
-
   doInfinite(infiniteScroll) {
     setTimeout(()=> {
       this.loadItems();
