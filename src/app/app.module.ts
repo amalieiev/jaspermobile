@@ -10,6 +10,8 @@ import {AboutPage} from '../pages/about/about';
 import {SettingsPage} from "../pages/settings/settings";
 import {ResourceInfoPage} from '../pages/resource-info/resource-info';
 
+import {ResourceCard} from "../components/resource-card.component";
+
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Profile} from '../services/profile.service';
@@ -23,7 +25,8 @@ import {Visualize} from '../services/visualize.service';
     LibraryPage,
     ResourceInfoPage,
     AboutPage,
-    SettingsPage
+    SettingsPage,
+    ResourceCard
   ],
   imports: [
     BrowserModule,

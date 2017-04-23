@@ -15,8 +15,24 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-page-app {
-  ion-toolbar {
+.menu-header {
+  color: white;
+}
+
+.menu-content {
+  background: $dark2;
+  color: white;
+
+  ion-list button {
+    background: $dark2;
     color: white;
   }
+
+  ion-list button.activated {
+    background: linear-gradient(to right, $dark1, $dark5);
+  }
+}
+
+.menu-footer {
+  color: white;
 }

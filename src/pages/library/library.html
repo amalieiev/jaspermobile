@@ -20,7 +20,7 @@
 
 
 <ion-content>
-  <ion-list *ngIf="displayMode == 'list'">
+  <ion-list no-lines *ngIf="displayMode == 'list'">
     <ion-item *ngFor="let item of filterItems()" (click)="run(item)">
       <ion-thumbnail item-left>
         <img src="{{ item.thumbnail }}">
@@ -33,15 +33,8 @@
 
   <ion-grid *ngIf="displayMode == 'grid'">
     <ion-row>
-      <ion-col no-padding col-6 *ngFor="let item of filterItems()">
-        <ion-card (click)="run(item)">
-          <ion-card-header>
-            {{ item.title }}
-          </ion-card-header>
-          <ion-card-content>
-            {{ item.description }}
-          </ion-card-content>
-        </ion-card>
+      <ion-col col-6 *ngFor="let item of filterItems()" (click)="run(item)">
+        <resource-card [title]="item.title" [description]="item.description"></resource-card>
       </ion-col>
     </ion-row>
   </ion-grid>

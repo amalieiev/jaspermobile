@@ -1,26 +1,26 @@
 <ion-menu [content]="content">
 
-  <ion-header>
-    <ion-toolbar padding-left color="dark">
+  <ion-header class="menu-header">
+    <ion-toolbar padding-left color="dark2">
       <h3>{{ this.profile.username }}</h3>
       <p>TIBCO Jaspersoft Mobile</p>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="menu-content">
 
     <ion-list no-lines>
 
-      <button ion-item *ngFor="let page of pages" (click)="openPage(page.component)" [disabled]="!page.component">
+      <button detail-none ion-item *ngFor="let page of pages" (click)="openPage(page.component)" [disabled]="!page.component">
         <ion-icon [name]="page.icon" item-left></ion-icon>
         {{ page.title }}
       </button>
 
-      <button ion-item *ngFor="let modal of modals" (click)="openModal(modal.component)" [disabled]="!modal.component">
+      <button detail-none ion-item *ngFor="let modal of modals" (click)="openModal(modal.component)" [disabled]="!modal.component">
         {{ modal.title }}
       </button>
 
-      <button ion-item (click)="logOut()">
+      <button detail-none ion-item (click)="logOut()">
         Log Out
       </button>
 
@@ -28,8 +28,8 @@
 
   </ion-content>
 
-  <ion-footer>
-    <ion-toolbar padding-left color="dark">
+  <ion-footer class="menu-footer">
+    <ion-toolbar padding-left color="dark2">
       <p>version 1.0</p>
     </ion-toolbar>
   </ion-footer>
