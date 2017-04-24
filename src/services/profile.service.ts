@@ -26,7 +26,7 @@ export class Profile {
     this.script = document.createElement('script');
 
     return new Promise((resolve, reject) => {
-      this.script.setAttribute('src', `${this.server}/client/visualize.js`);
+      this.script.setAttribute('src', `${this.parseServerUrl(this.server)}/client/visualize.js`);
       this.script.onload = () => {
         resolve(window['visualize']);
       };
@@ -51,5 +51,13 @@ export class Profile {
         }, reject);
       }).catch(reject);
     });
+  }
+
+  parseServerUrl(url) {
+    if (/http:\/\//.test(url) || /https:\/\//.test(url)) {
+      return url;
+    } else {
+      return 'http://'.concat(url);
+    }
   }
 }

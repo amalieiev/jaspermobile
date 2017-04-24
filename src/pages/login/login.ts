@@ -53,7 +53,7 @@ export class LoginPage {
   applyTestProfile() {
     this.username = 'joeuser';
     this.password = 'joeuser';
-    // this.profile.server = 'http://build-master-j8.jaspersoft.com:8980/jrs-pro-feature-embeddable-ahv2';
-    this.server = 'http://localhost:4040/jasperserver-pro';
+    this.server = 'http://build-master-j8.jaspersoft.com:8980/jrs-pro-feature-embeddable-ahv2';
+    // this.server = 'http://localhost:4040/jasperserver-pro';
   }
 }
